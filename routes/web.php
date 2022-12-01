@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::view('/daftar-rak', 'daftarrak');
+Route::view('/cari-barang', 'caribarang');
