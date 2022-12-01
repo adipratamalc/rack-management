@@ -5,10 +5,11 @@
   <section class="section">
     <div class="section-header">
       <h1>Daftar Rak</h1>
-      <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="#">Layout</a></div>
-        <div class="breadcrumb-item">Daftar Rak</div>
+
+      <div class="ml-auto">
+        <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#modalAdd">
+          <i class="fas fa-plus"></i> Tambah Rak
+        </button>
       </div>
     </div>
 
@@ -197,5 +198,31 @@
       </div>
     </div>
   </section>
+</div>
+
+{{-- MODAL ADD --}}
+<div class="modal fade" role="dialog" tabindex="-1" id="modalAdd">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Rak</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Kode Rak</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+
+      <div class="modal-footer bg-whitesmoke br">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
