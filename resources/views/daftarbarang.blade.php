@@ -1,87 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="main-content">
-  <section class="section">
-    <div class="section-header">
-      <h1>Daftar Barang</h1>
 
-      <div class="ml-auto">
-        <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#modalAdd">
-          <i class="fas fa-plus"></i> Tambah Barang
-        </button>
+<section class="section">
+  <div class="section-header">
+    <h1>Daftar Barang</h1>
+
+    <div class="ml-auto">
+      <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#modalAdd">
+        <i class="fas fa-plus"></i> Tambah Barang
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Kode Barang</th>
+              <th scope="col">Nama Barang</th>
+              <th scope="col">Jenis Barang</th>
+              <th scope="col">Harga</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>SRG001</td>
+              <td>Silver Stone Frag</td>
+              <td>Gelang</td>
+              <td>IDR 200.000</td>
+              <td class="text-center">
+                <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn btn-icon btn-danger">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>SRG001</td>
+              <td>Silver Stone Frag</td>
+              <td>Gelang</td>
+              <td>IDR 200.000</td>
+              <td class="text-center">
+                <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn btn-icon btn-danger">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>SRG001</td>
+              <td>Silver Stone Frag</td>
+              <td>Gelang</td>
+              <td>IDR 200.000</td>
+              <td class="text-center">
+                <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn btn-icon btn-danger">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="section-body">
-      <div class="card">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Kode Barang</th>
-                  <th scope="col">Nama Barang</th>
-                  <th scope="col">Jenis Barang</th>
-                  <th scope="col">Harga</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>SRG001</td>
-                  <td>Silver Stone Frag</td>
-                  <td>Gelang</td>
-                  <td>IDR 200.000</td>
-                  <td class="text-center">
-                    <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
-                      <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="btn btn-icon btn-danger">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>SRG001</td>
-                  <td>Silver Stone Frag</td>
-                  <td>Gelang</td>
-                  <td>IDR 200.000</td>
-                  <td class="text-center">
-                    <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
-                      <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="btn btn-icon btn-danger">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>SRG001</td>
-                  <td>Silver Stone Frag</td>
-                  <td>Gelang</td>
-                  <td>IDR 200.000</td>
-                  <td class="text-center">
-                    <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit">
-                      <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="btn btn-icon btn-danger">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
-  </section>
-</div>
 
 {{-- MODAL ADD --}}
 <div class="modal fade" role="dialog" tabindex="-1" id="modalAdd">

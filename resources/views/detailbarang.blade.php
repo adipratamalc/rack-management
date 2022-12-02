@@ -3,30 +3,29 @@
 @section('content')
 <section class="section">
   <div class="section-header">
-    <h1>Cari Barang</h1>
+    <h1>Detail Barang</h1>
   </div>
 
   <div class="section-body">
     <div class="row">
       <div class="col-12 col-md-6 d-flex flex-column">
-        <form>
-          <div class="d-flex w-100">
-            <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+        <h2 class="title-product text-primary">Cincin 23FWDDK</h2>
+        <div class="d-flex flex-column align-items-center">
+          <img alt="image" src="../assets/img/product-ex.png" class="img-fluid w-50">
+        </div>
 
-            <button class="btn bg-white btn-rounded ml-2" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </form>
-
-        <div class="mt-4">
-          <div class="text-center p-4 bg-light rounded mb-2">
-            <span class="h5">Posisi <b>Gelang 23FWDDK</b> berada pada <b>“RAK A, First Row - Middle”</b></span>
-          </div>
+        <div class="d-flex flex-column">
+          <p class="h4">IDR 200.000</p>
+          <p class="h5 font-italic">Ring</p>
+          <p class="h5">Stok: <span class="text-primary">7</span></p>
         </div>
       </div>
 
       <div class="col-12 col-md-6">
+        <div class="text-center p-4 bg-light rounded mb-2">
+          <span class="h5">Posisi <b>Cincin 23FWDDK</b> berada pada <b>“RAK A, First Row - Middle”</b></span>
+        </div>
+
         <div class="card py-3">
           <div class="px-3">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
