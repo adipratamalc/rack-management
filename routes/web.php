@@ -17,6 +17,7 @@ Route::get('/', function () {
   return view('dashboard');
 });
 
+Route::view('/login', 'login');
 Route::view('/daftar-rak', 'daftarrak');
 Route::view('/daftar-barang', 'daftarbarang');
 Route::view('/cari-barang', 'caribarang');
