@@ -6,7 +6,7 @@
     <h1>Halaman Utama</h1>
   </div>
 
-  <h2>Selamat Datang, Admin Logi!</h2>
+  <h2>Selamat Datang Semuanya, Admin Logi!</h2>
 
   {{-- DAFTAR BARANG DASHBOARD --}}
   <div class="card mt-4">
