@@ -23,8 +23,9 @@
 
       @include('layouts.partials.sidebar')
 
-      <!-- Main Content -->
-      @yield('content')
+      <div class="main-content">
+        @yield('content')
+      </div>
 
       @include('layouts.partials.footer')
     </div>

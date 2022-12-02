@@ -21,4 +21,5 @@ Route::view('/login', 'login');
 Route::view('/daftar-rak', 'daftarrak');
 Route::view('/daftar-barang', 'daftarbarang');
 Route::view('/cari-barang', 'caribarang');
+Route::view('/detail-barang', 'detailbarang');
 Route::view('/hasil-cari', 'hasilcari');
