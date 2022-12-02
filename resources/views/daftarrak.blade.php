@@ -24,9 +24,9 @@
             <div class="px-3">
               <div class="main-row">
                 <p class="h5 mb-1">First</p>
-                <div class="p-2 bg-light text-center border border-danger">
+                <div class="p-2 bg-light text-center">
                   <div class="bg-secondary mb-2 p-1">Top</div>
-                  <div class="bg-danger mb-2 p-1 text-white">Middle</div>
+                  <div class="bg-secondary mb-2 p-1">Middle</div>
                   <div class="bg-secondary p-1">Bottom</div>
                 </div>
               </div>
