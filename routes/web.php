@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+  return view('dashboard');
 });
 
 Route::view('/daftar-rak', 'daftarrak');
 Route::view('/daftar-barang', 'daftarbarang');
 Route::view('/cari-barang', 'caribarang');
+Route::view('/hasil-cari', 'hasilcari');
