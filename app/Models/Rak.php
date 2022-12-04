@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\uuidAsKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Rak extends Model
 {
-  use HasFactory;
+  use HasFactory, uuidAsKey;
   public $fllable = ['kode_rak'];
   public $timestamps = true;
 
