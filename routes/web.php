@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\JenisBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +23,5 @@ Route::view('/daftar-barang', 'daftarbarang');
 Route::view('/cari-barang', 'caribarang');
 Route::view('/detail-barang', 'detailbarang');
 Route::view('/hasil-cari', 'hasilcari');
+
+Route::resource('jenis-barang', JenisBarangController::class);
