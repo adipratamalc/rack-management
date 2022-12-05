@@ -52,7 +52,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Barang</h5>
+        <h5 class="modal-title">Tambah Jenis</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -60,40 +60,8 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <label>Nama Barang</label>
+          <label>Nama Jenis</label>
           <input type="text" class="form-control">
-        </div>
-
-        <div class="form-group">
-          <label>Kode Barang</label>
-          <input type="text" class="form-control">
-        </div>
-
-        <div class="form-group">
-          <label>Kode Rak</label>
-          <select class="form-control">
-            <option>AA</option>
-            <option>AB</option>
-            <option>AC</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Rak Main Row</label>
-          <select class="form-control">
-            <option>First</option>
-            <option>Second</option>
-            <option>Third</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Rak Sub Row</label>
-          <select class="form-control">
-            <option>Top</option>
-            <option>Middle</option>
-            <option>Bottom</option>
-          </select>
         </div>
       </div>
 
@@ -118,40 +86,8 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <label>Nama Barang</label>
-          <input type="text" class="form-control" value="Silver Stone Frag">
-        </div>
-
-        <div class="form-group">
-          <label>Kode Barang</label>
-          <input type="text" class="form-control" value="SRG0001">
-        </div>
-
-        <div class="form-group">
-          <label>Kode Rak</label>
-          <select class="form-control">
-            <option>AA</option>
-            <option>AB</option>
-            <option>AC</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Rak Main Row</label>
-          <select class="form-control">
-            <option>First</option>
-            <option>Second</option>
-            <option>Third</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Rak Sub Row</label>
-          <select class="form-control">
-            <option>Top</option>
-            <option>Middle</option>
-            <option>Bottom</option>
-          </select>
+          <label>Nama Jenis</label>
+          <input type="text" class="form-control" value="Ring">
         </div>
       </div>
 
