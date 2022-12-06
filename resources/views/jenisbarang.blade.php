@@ -89,14 +89,17 @@
         </button>
       </div>
 
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Nama Jenis</label>
-          <input type="text" class="form-control" value="{{$jns->nama_jenis}}">
-        </div>
-      </div>
+      <form action="{{ route('jenis-barang.update', $jns->id) }}" method="POST">
+        @csrf
+        @method('PUT')
 
-      <form action="">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Nama Jenis</label>
+            <input type="text" class="form-control" name="nama_jenis" value="{{$jns->nama_jenis}}">
+          </div>
+        </div>
+
         <div class="modal-footer bg-whitesmoke br">
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
           <button type="submit" class="btn btn-primary">Simpan</button>

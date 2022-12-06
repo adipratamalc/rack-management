@@ -46,6 +46,7 @@ class JenisBarangController extends Controller
     $jenisbrg = new Jenis_barang();
     $jenisbrg->nama_jenis = $request->nama_jenis;
     $jenisbrg->save();
+
     return redirect()->route('jenis-barang.index')
       ->with('success', 'Data berhasil dibuat!');
   }
@@ -81,7 +82,17 @@ class JenisBarangController extends Controller
    */
   public function update(Request $request, $id)
   {
-    //
+
+    $validated = $request->validate([
+      'nama_jenis' => 'required',
+    ]);
+
+    $jenisbrg = Jenis_barang::findOrFail($id);
+    $jenisbrg->nama_jenis = $request->nama_jenis;
+    $jenisbrg->save();
+
+    return redirect()->route('jenis-barang.index')
+      ->with('success', 'Data berhasil diedit!');
   }
 
   /**
@@ -94,6 +105,7 @@ class JenisBarangController extends Controller
   {
     $jenisbrg = Jenis_barang::findOrFail($id);
     $jenisbrg->delete();
+
     return redirect()->route('jenis-barang.index')
       ->with('success', 'Data berhasil dihapus!');
   }
