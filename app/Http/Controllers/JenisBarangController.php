@@ -38,7 +38,16 @@ class JenisBarangController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    //validasi
+    $validated = $request->validate([
+      'nama_jenis' => 'required',
+    ]);
+
+    $jenisbrg = new Jenis_barang();
+    $jenisbrg->nama_jenis = $request->nama_jenis;
+    $jenisbrg->save();
+    return redirect()->route('jenis-barang.index')
+      ->with('success', 'Data berhasil dibuat!');
   }
 
   /**
@@ -83,6 +92,9 @@ class JenisBarangController extends Controller
    */
   public function destroy($id)
   {
-    //
+    $jenisbrg = Jenis_barang::findOrFail($id);
+    $jenisbrg->delete();
+    return redirect()->route('jenis-barang.index')
+      ->with('success', 'Data berhasil dihapus!');
   }
 }
