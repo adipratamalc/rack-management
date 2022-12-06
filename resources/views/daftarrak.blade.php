@@ -16,8 +16,11 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card py-3">
-          <div class="px-3">
+          <div class="px-3 d-flex justify-content-between">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
+            <button class="btn btn-icon btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
           <div class="px-3">
@@ -50,10 +53,14 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card py-3">
-          <div class="px-3">
+          <div class="px-3 d-flex justify-content-between">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
+            <button class="btn btn-icon btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
           <div class="px-3">
@@ -86,10 +93,14 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card py-3">
-          <div class="px-3">
+          <div class="px-3 d-flex justify-content-between">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
+            <button class="btn btn-icon btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
           <div class="px-3">
@@ -122,10 +133,14 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card py-3">
-          <div class="px-3">
+          <div class="px-3 d-flex justify-content-between">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
+            <button class="btn btn-icon btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
           <div class="px-3">
@@ -158,10 +173,14 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card py-3">
-          <div class="px-3">
+          <div class="px-3 d-flex justify-content-between">
             <h6 class="h5 font-weight-bold text-primary">RAK A</h6>
+            <button class="btn btn-icon btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
           <div class="px-3">

@@ -19,6 +19,12 @@
         </a>
       </li>
 
+      <li class={{ Request::is('jenis-barang')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/jenis-barang') }}"><i class="fas fa-bars"></i>
+          <span>Jenis Barang</span>
+        </a>
+      </li>
+
       <li class={{ Request::is('daftar-barang')? "active" : "" }}>
         <a class="nav-link" href="{{ url('/daftar-barang') }}"><i class="fas fa-list"></i>
           <span>Daftar Barang</span>
