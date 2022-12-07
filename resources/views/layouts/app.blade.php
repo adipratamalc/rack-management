@@ -44,6 +44,9 @@
   <!-- Template JS File -->
   <script src="../assets/js/scripts.js"></script>
   <script src="../assets/js/custom.js"></script>
+
+  <script src="../assets/js/closeAlert.js"></script>
+
 </body>
 
 </html>
