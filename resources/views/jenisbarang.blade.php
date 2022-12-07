@@ -13,6 +13,8 @@
     </div>
   </div>
 
+  @include('layouts.partials.flashmsg')
+
   <div class="card">
     <div class="card-body">
       <div class="table-responsive">
@@ -64,7 +66,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Nama Jenis</label>
-            <input type="text" class="form-control" name="nama_jenis">
+            <input type="text" required class="form-control" name="nama_jenis">
           </div>
         </div>
 
@@ -96,7 +98,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Nama Jenis</label>
-            <input type="text" class="form-control" name="nama_jenis" value="{{$jns->nama_jenis}}">
+            <input type="text" required class="form-control" name="nama_jenis" value="{{$jns->nama_jenis}}">
           </div>
         </div>
 

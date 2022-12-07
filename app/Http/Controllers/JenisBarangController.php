@@ -14,10 +14,8 @@ class JenisBarangController extends Controller
    */
   public function index()
   {
-    $jenis_barang = Jenis_barang::latest()->paginate(5);
-
-    return view('jenisbarang', compact('jenis_barang'))
-      ->with('i', (request()->input('page', 1) - 1) * 5);
+    $jenis_barang = Jenis_barang::all();
+    return view('jenisbarang', compact('jenis_barang'))->with('i', 0);
   }
 
   /**
@@ -38,11 +36,6 @@ class JenisBarangController extends Controller
    */
   public function store(Request $request)
   {
-    //validasi
-    $validated = $request->validate([
-      'nama_jenis' => 'required',
-    ]);
-
     $jenisbrg = new Jenis_barang();
     $jenisbrg->nama_jenis = $request->nama_jenis;
     $jenisbrg->save();
@@ -82,11 +75,6 @@ class JenisBarangController extends Controller
    */
   public function update(Request $request, $id)
   {
-
-    $validated = $request->validate([
-      'nama_jenis' => 'required',
-    ]);
-
     $jenisbrg = Jenis_barang::findOrFail($id);
     $jenisbrg->nama_jenis = $request->nama_jenis;
     $jenisbrg->save();
