@@ -32,10 +32,11 @@
               <th scope="row">{{ ++$i }}</th>
               <td>{{$jns->nama_jenis}}</td>
               <td class="text-center">
-                <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit-{{$jns->id}}">
+                <button type="button" class="btn btn-icon btn-info mr-2" data-toggle="modal"
+                  data-target="#modalEdit-{{$jns->id}}">
                   <i class="fas fa-pen"></i>
                 </button>
-                <button type="submit" class="btn btn-icon btn-danger" data-toggle="modal"
+                <button type="button" class="btn btn-icon btn-danger" data-toggle="modal"
                   data-target="#modalDelete-{{$jns->id}}">
                   <i class="fas fa-trash"></i>
                 </button>
