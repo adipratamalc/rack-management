@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JenisBarangController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +15,15 @@ use App\Http\Controllers\JenisBarangController;
 |
 */
 
-Route::get('/', function () {
-  return view('dashboard');
-});
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
 
-Route::view('/login', 'login');
-Route::view('/daftar-rak', 'daftarrak');
-Route::view('/daftar-barang', 'daftarbarang');
-Route::view('/cari-barang', 'caribarang');
-Route::view('/detail-barang', 'detailbarang');
-Route::view('/hasil-cari', 'hasilcari');
+Route::view('/', 'dashboard')->middleware('auth');
 
-Route::resource('jenis-barang', JenisBarangController::class);
+Route::view('/daftar-rak', 'daftarrak')->middleware('auth');
+Route::view('/daftar-barang', 'daftarbarang')->middleware('auth');
+Route::view('/cari-barang', 'caribarang')->middleware('auth');
+Route::view('/detail-barang', 'detailbarang')->middleware('auth');
+Route::view('/hasil-cari', 'hasilcari')->middleware('auth');
+
+Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
