@@ -15,8 +15,8 @@ class CreateRaksTable extends Migration
   {
     Schema::create('raks', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->foreignId('main_row_id')->constrained('rak_main_rows')->onDelete('cascade');
-      $table->foreignId('sub_row_id')->constrained('rak_sub_rows')->onDelete('cascade');
+      $table->foreignId('main_row_id')->nullable()->constrained('rak_main_rows')->onDelete('set null')->onUpdate('cascade');
+      $table->foreignId('sub_row_id')->nullable()->constrained('rak_sub_rows')->onDelete('set null')->onUpdate('cascade');
       $table->char('kode_rak');
       $table->timestamps();
     });

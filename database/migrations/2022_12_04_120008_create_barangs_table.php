@@ -15,8 +15,8 @@ class CreateBarangsTable extends Migration
   {
     Schema::create('barangs', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->foreignUuid('rak_id')->constrained('raks');
-      $table->foreignId('jenis_barang_id')->constrained('jenis_barangs')->onDelete('cascade');
+      $table->foreignUuid('rak_id')->nullable()->constrained('raks')->onDelete('set null')->onUpdate('cascade');
+      $table->foreignId('jenis_barang_id')->nullable()->constrained('jenis_barangs')->onDelete('set null')->onUpdate('cascade');
       $table->string('kode_barang');
       $table->string('nama_barang');
       $table->string('gambar_barang');
