@@ -12,6 +12,6 @@ class Rak_main_row extends Model
 
   public function rak()
   {
-    return $this->hasMany('App\Models\Rak', 'id_main_row');
+    return $this->hasMany(Rak::class);
   }
 }

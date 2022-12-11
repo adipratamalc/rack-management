@@ -12,12 +12,17 @@ class Rak extends Model
   public $fllable = ['kode_rak'];
   public $timestamps = true;
 
-  public function rak_sub()
+  public function barang()
   {
-    return $this->belongsTo('App\Model\Rak_sub_row', 'id');
+    return $this->hasMany(Barang::class);
   }
-  public function rak_main()
+
+  public function rak_main_row()
   {
-    return $this->belongsTo('App\Model\Rak_main_row', 'id');
+    return $this->belongsTo(Rak_main_row::class);
+  }
+  public function rak_sub_row()
+  {
+    return $this->belongsTo(Rak_sub_row::class);
   }
 }

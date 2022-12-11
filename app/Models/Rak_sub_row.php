@@ -12,6 +12,6 @@ class Rak_sub_row extends Model
 
   public function rak()
   {
-    return $this->hasMany('App\Models\Rak', 'id_sub_row');
+    return $this->hasMany(Rak::class);
   }
 }

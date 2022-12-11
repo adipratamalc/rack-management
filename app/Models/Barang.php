@@ -9,12 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
   use HasFactory, uuidAsKey;
-  public $fllable = ['kode_barang', 'nama_barang', 'stok', 'harga'];
+  public $fillable = ['rak_id', 'jenis_barang_id', 'kode_barang', 'nama_barang', 'gambar_barang', 'stok', 'harga'];
   public $timestamps = true;
 
 
   public function jenis_barang()
   {
-    return $this->belongsTo('App\Model\Jenis_barang', 'id');
+    return $this->belongsTo(Jenis_barang::class);
+  }
+  public function rak()
+  {
+    return $this->belongsTo(rak::class);
   }
 }

@@ -16,15 +16,13 @@ class CreateBarangsTable extends Migration
     Schema::create('barangs', function (Blueprint $table) {
       $table->uuid('id')->primary();
       $table->foreignUuid('rak_id')->constrained('raks');
-      $table->unsignedBigInteger('jenis_barang_id')->constrained('jenis_barang')->onDelete('set null');
+      $table->foreignId('jenis_barang_id')->constrained('jenis_barangs')->onDelete('cascade');
       $table->string('kode_barang');
       $table->string('nama_barang');
       $table->string('gambar_barang');
       $table->integer('stok');
       $table->integer('harga');
       $table->timestamps();
-
-      // $table->foreign('rak_id')->references('id')->on('raks');
     });
   }
 

@@ -12,6 +12,6 @@ class Jenis_barang extends Model
 
   public function barang()
   {
-    return $this->hasOne('App\Models\Barang', 'id_jenis_barang');
+    return $this->hasOne(Barang::class);
   }
 }
