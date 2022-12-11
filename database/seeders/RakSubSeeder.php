@@ -16,16 +16,20 @@ class RakSubSeeder extends Seeder
     {
         Rak_sub_row::create(
             [
-                'nama_main_row' => 'First Level'
+                'id'            => 1,
+                'nama_sub_row' => 'First Row'
             ],
             [
-                'nama_main_row' => 'Second Level'
+                'id'            => 2,
+                'nama_sub_row' => 'Second Row'
             ],
             [
-                'nama_main_row' => 'Third Level'
+                'id'            => 3,
+                'nama_sub_row' => 'Third Row'
             ],
             [
-                'nama_main_row' => 'Fourth Level'
+                'id'            => 4,
+                'nama_sub_row' => 'Fourth Row'
             ]
         );
     }
