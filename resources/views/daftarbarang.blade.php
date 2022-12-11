@@ -20,10 +20,8 @@
           <thead>
             <tr>
               <th scope="col">No</th>
-              <th scope="col">GAMBAR Barang</th>
               <th scope="col">Kode Barang</th>
               <th scope="col">Nama Barang</th>
-              <th scope="col">Jenis Barang</th>
               <th scope="col">Jenis Barang</th>
               <th scope="col">Stok</th>
               <th scope="col">Harga</th>
@@ -35,11 +33,9 @@
             @foreach ($barang as $brg)
             <tr>
               <th scope="row">{{ ++$i }}</th>
-              <td>{{ $brg->gambar_barang }}</td>
               <td>{{ $brg->kode_barang }}</td>
               <td>{{ $brg->nama_barang }}</td>
               <td>{{ $brg->jenis_barang->nama_jenis }}</td>
-              <td>{{ $brg->gambar_barang }}</td>
               <td>{{ $brg->stok }}</td>
               <td>{{ $brg->harga }}</td>
               <td class="text-center">
