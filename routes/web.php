@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JenisBarangController;
+use App\Http\Controllers\BarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +20,9 @@ Route::get('/', function () {
 
 Route::view('/login', 'login');
 Route::view('/daftar-rak', 'daftarrak');
-Route::view('/daftar-barang', 'daftarbarang');
 Route::view('/cari-barang', 'caribarang');
 Route::view('/detail-barang', 'detailbarang');
 Route::view('/hasil-cari', 'hasilcari');
 
 Route::resource('jenis-barang', JenisBarangController::class);
+Route::resource('daftar-barang', BarangController::class);
