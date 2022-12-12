@@ -229,46 +229,27 @@
       </div>
 
       <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label>Kode Rak</label>
+            <input type="text" class="form-control">
+          </div>
 
-        <div class="form-group">
-          <label>Kode Rak</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-          <label> Jumlah Baris</label>
-          <select id="mainRow" onchange="myFunction()" class="form-control">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-
-        <div id="inputRow"></div>
-
-        <script>
-          function myFunction() {
-          var x = document.getElementById("mainRow").value;
-          var t = '';
-          for (let i = 0; i < x; i++) {
-            t +=
-            `<label>first Row </label>
-            <div class="input-group mb-3">
-            <span class="input-group-text" >Jumlah Level</span>
-            <select class="form-control">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+          <div class="form-group">
+            <label>Main Row</label>
+            <select class="custom-select" id="mainRow" onchange="createMainRow()">
+              <option value="0" selected>Pilih salah satu</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
-            </div>`;
-          }
-          document.getElementById("inputRow").innerHTML = t;
-        }
-        </script>
+          </div>
 
+          <div id="subRowList"></div>
+        </form>
       </div>
+
       <div class="modal-footer bg-whitesmoke br">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <button type="button" class="btn btn-primary">Simpan</button>
