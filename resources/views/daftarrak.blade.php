@@ -229,10 +229,25 @@
       </div>
 
       <div class="modal-body">
-        <div class="form-group">
-          <label>Kode Rak</label>
-          <input type="text" class="form-control">
-        </div>
+        <form action="">
+          <div class="form-group">
+            <label>Kode Rak</label>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label>Main Row</label>
+            <select class="custom-select" id="mainRow" onchange="createMainRow()">
+              <option value="0" selected>Pilih salah satu</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div id="subRowList"></div>
+        </form>
       </div>
 
       <div class="modal-footer bg-whitesmoke br">
