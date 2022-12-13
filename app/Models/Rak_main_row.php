@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rak_main_row extends Model
 {
   use HasFactory;
-  public $fllable = ['nama_main_rak'];
+  public $fillable = ['nama_main_rak'];
 
   public function rak()
   {
