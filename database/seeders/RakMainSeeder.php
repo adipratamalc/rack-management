@@ -14,7 +14,7 @@ class RakMainSeeder extends Seeder
      */
     public function run()
     {
-        Rak_main_row::create(
+        $data = [
             [
                 'id'            => 1,
                 'nama_main_row' => 'First Row'
@@ -31,6 +31,8 @@ class RakMainSeeder extends Seeder
                 'id'            => 4,
                 'nama_main_row' => 'Fourth Row'
             ]
-        );
+        ];
+
+        Rak_main_row::insert($data);
     }
 }
