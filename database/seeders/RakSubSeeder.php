@@ -17,15 +17,15 @@ class RakSubSeeder extends Seeder
         $data = [
             [
                 'id'            => 1,
-                'nama_sub_row' => 'First Row'
+                'nama_sub_row' => 'First level'
             ],
             [
                 'id'            => 2,
-                'nama_sub_row' => 'Second Row'
+                'nama_sub_row' => 'Second level'
             ],
             [
                 'id'            => 3,
-                'nama_sub_row' => 'Third Row'
+                'nama_sub_row' => 'Third level'
             ],
         ];
 
