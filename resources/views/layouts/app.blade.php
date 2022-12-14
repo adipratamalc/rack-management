@@ -46,7 +46,6 @@
   <script src="../assets/js/custom.js"></script>
 
   <script src="../assets/js/closeAlert.js"></script>
-  <script src="../assets/js/selectRow.js"></script>
 
 </body>
 
