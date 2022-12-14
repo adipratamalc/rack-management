@@ -13,6 +13,8 @@
     </div>
   </div>
 
+  @include('layouts.partials.flashmsg')
+
   <div class="card">
     <div class="card-body">
       <div class="table-responsive">
@@ -102,7 +104,7 @@
           <div class="form-group">
             <label>Kode Rak</label>
             <select name="kode_rak_id" class="form-control">
-              @foreach ($t_kode_rak as $kdrk)
+              @foreach ($kode_rak as $kdrk)
               <option value="{{$kdrk->id}}">{{$kdrk->kode_rak}}</option>
               @endforeach
             </select>
@@ -119,24 +121,11 @@
 
           <div class="form-group">
             <label>Rak Sub Row</label>
-            <option value="" selected>Pilih salah satu</option>
-
-            <script>
-              const mainRowVal = document.getElementById("mainRow");
-              const subRowList = document.getElementById("subRowList");
-              function createSubRow() {
-              for (let i = 0; i < mainRowVal.value; i++) {
-              subRowList.innerHTML += `
               <select name="sub_row" class="form-control">
                 @foreach ($rak_sub as $rk_s)
                 <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
                 @endforeach
               </select>
-              `;
-            }
-          }
-            </script>
-
           </div>
 
           <div class="form-group">
@@ -183,7 +172,7 @@
           <div class="form-group">
             <label class="font-weight-bold">GAMBAR</label>
             <input type="file" id="file" name="gambar_barang" />
-            <!-- <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div> -->
+            <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div>
           </div>
 
           <div class="form-group">
@@ -199,19 +188,21 @@
           <div class="form-group">
             <label>Jenis barang</label>
             <select name="jenis_barang_id" class="form-control">
-              <option value="{{$brg->jenis_barang->id}}">{{$brg->jenis_barang->nama_jenis}}</option>
               @foreach ($jenisbarang as $jb)
-              <option value="{{$jb->id}}">{{$jb->nama_jenis}}</option>
+              <option value="{{$jb->id}}" @if($jb->id === $brg->jenis_barang_id) selected @endif>
+                {{$jb->nama_jenis}}
+              </option>
               @endforeach
             </select>
           </div>
 
           <div class="form-group">
             <label>Kode Rak</label>
-            <select name="kode_rak" class="form-control">
-              <option value="{{$brg->rak->_id}}">{{$brg->rak->kode_rak}}</option>
-              @foreach ($rak as $rk)
-              <option value="{{$rk->kode_rak}}">{{$rk->kode_rak}}</option>
+            <select name="kode_rak_id" class="form-control">
+              @foreach ($kode_rak as $kdrk)
+              <option value="{{$kdrk->id}}" @if($kdrk->id === $brg->rak->kode_rak_id) selected @endif>
+                {{$kdrk->kode_rak}}
+              </option>
               @endforeach
             </select>
           </div>
@@ -220,12 +211,9 @@
             <label>Rak Main Row</label>
             <select name="main_row" class="form-control">
               @foreach ($rak_main as $rk_m)
-              @if ($rk_m->id === $brg->rak->main_row_id)
-              <option value="{{$rk_m->id}}">{{$rk_m->nama_main_row}}</option>
-              @endif
-              @endforeach
-              @foreach ($rak_main as $rk_m)
-              <option value="{{$rk_m->id}}">{{$rk_m->nama_main_row}}</option>
+              <option value="{{$rk_m->id}}" @if($rk_m->id === $brg->rak->main_row_id) selected @endif>
+                {{$rk_m->nama_main_row}}
+              </option>
               @endforeach
             </select>
           </div>
@@ -234,12 +222,9 @@
             <label>Rak Sub Row</label>
             <select name="sub_row" class="form-control">
               @foreach ($rak_sub as $rk_s)
-              @if ($rk_s->id === $brg->rak->sub_row_id)
-              <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}} </option>
-              @endif
-              @endforeach
-              @foreach ($rak_sub as $rk_s)
-              <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
+              <option value="{{$rk_s->id}}" @if($rk_s->id === $brg->rak->sub_row_id) selected @endif>
+                {{$rk_s->nama_sub_row}}
+              </option>
               @endforeach
             </select>
           </div>

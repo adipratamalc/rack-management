@@ -20,12 +20,12 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::all();
-        $jenisbarang = Jenis_barang::all();
+        $jenisbarang = Jenis_barang::orderBy('nama_jenis', 'ASC')->get();
         $rak = Rak::all();
-        $rak_main = Rak_main_row::all();
-        $rak_sub = Rak_sub_row::all();
-        $t_kode_rak = Kode_rak::all();
-        return view('daftarbarang', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 't_kode_rak'))->with('i', 0);
+        $rak_main = Rak_main_row::orderBy('nama_main_row', 'ASC')->get();
+        $rak_sub = Rak_sub_row::orderBy('nama_sub_row', 'ASC')->get();
+        $kode_rak = Kode_rak::orderBy('kode_rak', 'ASC')->get();
+        return view('daftarbarang', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 'kode_rak'))->with('i', 0);
     }
 
     /**
@@ -45,14 +45,12 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        // //validate form
-        // $this->validate($request, [
-        //     'gambar'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'title'     => 'required|min:5',
-        //     'content'   => 'required|min:10'
-        // ]);
+        //validate form
+        $this->validate($request, [
+            'gambar_barang'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        //upload image
+        // upload image
         $image = $request->file('gambar_barang');
         if ($image !== null) {
             $image->storeAs('public/barang', $image->hashName());
@@ -61,14 +59,11 @@ class BarangController extends Controller
             $gambar_barang = "no-image.jpg";
         }
 
-
-
         // get rak id
         $get_rak_id = Rak::where('kode_rak_id', $request->kode_rak_id)
             ->where('main_row_id', $request->main_row)
             ->where('sub_row_id', $request->sub_row)
             ->get('id');
-
 
         foreach ($get_rak_id as $rkid) {
             $rak_id = $rkid->id;
@@ -121,16 +116,14 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         $barang = Barang::findOrFail($id);
-        // $barang = Barang::findOrFail($id);
-        // //validate form
-        // $this->validate($request, [
-        //     'gambar'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'title'     => 'required|min:5',
-        //     'content'   => 'required|min:10'
-        // ]);
+
+        //validate form
+        $this->validate($request, [
+            'gambar'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
         // get rak id
-        $get_rak_id = Rak::where('kode_rak', $request->kode_rak)
+        $get_rak_id = Rak::where('kode_rak_id', $request->kode_rak_id)
             ->where('main_row_id', $request->main_row)
             ->where('sub_row_id', $request->sub_row)
             ->get('id');
