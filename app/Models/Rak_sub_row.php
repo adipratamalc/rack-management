@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Rak_sub_row extends Model
 {
   use HasFactory;
-  public $fllable = ['nama_sub_row'];
+  public $fillable = ['nama_sub_row'];
 
   public function rak()
   {
-    return $this->hasMany('App\Models\Rak', 'id_sub_row');
+    return $this->hasMany(Rak::class);
   }
 }

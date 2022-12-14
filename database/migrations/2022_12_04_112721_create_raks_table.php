@@ -15,9 +15,9 @@ class CreateRaksTable extends Migration
   {
     Schema::create('raks', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->unsignedBigInteger('main_row_id')->constrained('rak_main_rows')->onDelete('set null');
-      $table->unsignedBigInteger('sub_row_id')->constrained('rak_sub_rows')->onDelete('set null');
-      $table->char('kode_rak');
+      $table->foreignId('main_row_id')->constrained('rak_main_rows');
+      $table->foreignId('sub_row_id')->constrained('rak_sub_rows');
+      $table->foreignUuid('kode_rak_id')->constrained('kode_raks');
       $table->timestamps();
     });
   }

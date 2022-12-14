@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JenisBarangController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\RakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,18 @@ use App\Http\Controllers\JenisBarangController;
 */
 
 
-//login routes
+//auth routes
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'index')->name('login')->middleware('guest');
-    Route::post('/login', 'login')->middleware('guest');
-    Route::get('/logout', 'logout')->middleware('auth');
+  Route::get('/login', 'index')->name('login')->middleware('guest');
+  Route::post('/login', 'login')->middleware('guest');
+  Route::get('/logout', 'logout')->middleware('auth');
 });
 
 Route::view('/', 'dashboard')->middleware('auth');
-Route::view('/daftar-rak', 'daftarrak')->middleware('auth');
-Route::view('/daftar-barang', 'daftarbarang')->middleware('auth');
 Route::view('/cari-barang', 'caribarang')->middleware('auth');
 Route::view('/detail-barang', 'detailbarang')->middleware('auth');
 Route::view('/hasil-cari', 'hasilcari')->middleware('auth');
+
 Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
+Route::resource('daftar-barang', BarangController::class)->middleware('auth');
+Route::resource('daftar-rak', RakController::class)->middleware('auth');

@@ -9,15 +9,25 @@ use Illuminate\Database\Eloquent\Model;
 class Rak extends Model
 {
   use HasFactory, uuidAsKey;
-  public $fllable = ['kode_rak'];
-  public $timestamps = true;
+  public $fillable = ['main_row_id', 'sub_row_id', 'kode_rak_id'];
 
-  public function rak_sub()
+  public function barang()
   {
-    return $this->belongsTo('App\Model\Rak_sub_row', 'id');
+    return $this->hasMany(Barang::class);
   }
-  public function rak_main()
+
+  public function rak_main_row()
   {
-    return $this->belongsTo('App\Model\Rak_main_row', 'id');
+    return $this->belongsTo(Rak_main_row::class);
+  }
+
+  public function rak_sub_row()
+  {
+    return $this->belongsTo(Rak_sub_row::class);
+  }
+
+  public function kode_rak()
+  {
+    return $this->belongsTo(Kode_rak::class);
   }
 }

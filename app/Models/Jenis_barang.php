@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Jenis_barang extends Model
 {
   use HasFactory;
-  public $fllable = ['nama_jenis'];
+  public $fillable = ['nama_jenis'];
 
   public function barang()
   {
-    return $this->hasOne('App\Models\Barang', 'id_jenis_barang');
+    return $this->hasOne(Barang::class);
   }
 }
