@@ -6,7 +6,7 @@
     <h1>Halaman Utama</h1>
   </div>
 
-  <h2>Selamat Datang, Admin Logical!</h2>
+  <h2>Selamat Datang, {{ Auth::user()->name }}!</h2>
 
   {{-- DAFTAR BARANG DASHBOARD --}}
   <div class="card mt-4">

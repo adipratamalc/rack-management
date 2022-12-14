@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RakMainSeeder::class,
-            RakSubSeeder::class
+            RakSubSeeder::class,
+            AdminSeeder::class
         ]);
     }
 }

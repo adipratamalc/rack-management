@@ -113,7 +113,7 @@ class RakController extends Controller
         Rak::where('kode_rak_id', $id)->delete();
         Kode_rak::findOrFail($id)->delete();
 
-        return redirect()->route('rak-barang.index')
+        return redirect()->route('daftar-rak.index')
             ->with('success', 'Data berhasil dihapus!');
     }
 }
