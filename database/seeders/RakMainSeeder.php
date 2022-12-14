@@ -27,10 +27,6 @@ class RakMainSeeder extends Seeder
                 'id'            => 3,
                 'nama_main_row' => 'Third Row'
             ],
-            [
-                'id'            => 4,
-                'nama_main_row' => 'Fourth Row'
-            ]
         ];
 
         Rak_main_row::insert($data);

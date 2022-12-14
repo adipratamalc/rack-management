@@ -27,10 +27,6 @@ class RakSubSeeder extends Seeder
                 'id'            => 3,
                 'nama_sub_row' => 'Third Row'
             ],
-            [
-                'id'            => 4,
-                'nama_sub_row' => 'Fourth Row'
-            ]
         ];
 
         Rak_sub_row::insert($data);
