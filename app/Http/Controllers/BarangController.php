@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Jenis_barang;
+use App\Models\Kode_rak;
 use App\Models\Rak;
 use App\Models\Rak_main_row;
 use App\Models\Rak_sub_row;
@@ -20,10 +21,11 @@ class BarangController extends Controller
     {
         $barang = Barang::all();
         $jenisbarang = Jenis_barang::all();
-        $rak = Rak::distinct()->get('kode_rak');
+        $rak = Rak::all();
         $rak_main = Rak_main_row::all();
         $rak_sub = Rak_sub_row::all();
-        return view('daftarbarang', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub'))->with('i', 0);
+        $t_kode_rak = Kode_rak::all();
+        return view('daftarbarang', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 't_kode_rak'))->with('i', 0);
     }
 
     /**
@@ -62,7 +64,7 @@ class BarangController extends Controller
 
 
         // get rak id
-        $get_rak_id = Rak::where('kode_rak', $request->kode_rak)
+        $get_rak_id = Rak::where('kode_rak_id', $request->kode_rak_id)
             ->where('main_row_id', $request->main_row)
             ->where('sub_row_id', $request->sub_row)
             ->get('id');
@@ -179,8 +181,8 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        $jenisbrg = Barang::findOrFail($id);
-        $jenisbrg->delete();
+        $barang = Barang::findOrFail($id);
+        $barang->delete();
 
         return redirect()->route('daftar-barang.index')
             ->with('success', 'Data berhasil dihapus!');

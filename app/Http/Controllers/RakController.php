@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rak;
 use App\Models\Rak_main_row;
 use App\Models\Rak_sub_row;
+use App\Models\Kode_rak;
 use Illuminate\Http\Request;
 
 class RakController extends Controller
@@ -19,7 +20,8 @@ class RakController extends Controller
         $rak = Rak::all();
         $rak_main = Rak_main_row::all();
         $rak_sub = Rak_sub_row::all();
-        return view('daftarrak', compact('rak', 'rak_main', 'rak_sub'));
+        $kode_rak = Kode_rak::all();
+        return view('daftarrak', compact('rak', 'rak_main', 'rak_sub', 'kode_rak'));
     }
 
     /**
@@ -40,16 +42,25 @@ class RakController extends Controller
      */
     public function store(Request $request)
     {
-        //create post
+        $kode_rak_tb = Kode_rak::create([
+            'kode_rak' => $request->kode_rak
+        ]);
 
-        // Rak::create([
-        //     'main_row_id' => $request->main_row_id,
-        //     'sub_row_id' => $request->sub_row_id,
-        //     'kode_rak' => $request->kode_rak
-        // ]);
+        $rak_main = Rak_main_row::all();
+        $rak_sub = Rak_sub_row::all();
+        $i = 1;
+        foreach ($rak_main->take($request->main_row) as $rm) {
+            foreach ($rak_sub->take($request->sub_row[$i++]) as $rs) {
+                Rak::create([
+                    'main_row_id' => $rm->id,
+                    'sub_row_id' => $rs->id,
+                    'kode_rak_id' => $kode_rak_tb->id
+                ]);
+            }
+        }
 
-        // //redirect to index
-        // return redirect()->route('daftar-rak.index')->with('success', 'Data Berhasil Disimpan!');
+        //redirect to index
+        return redirect()->route('daftar-rak.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -83,7 +94,27 @@ class RakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kode_rak = Kode_rak::findOrFail($id);
+        $kode_rak->update([
+            'kode_rak' => $request->kode_rak
+        ]);
+
+        $rak_main = Rak_main_row::all();
+        $rak_sub = Rak_sub_row::all();
+        $i = 1;
+
+        foreach ($rak_main->take($request->main_row) as $rm) {
+            foreach ($rak_sub->take($request->sub_row[$i++]) as $rs) {
+                Rak::create([
+                    'main_row_id' => $rm->id,
+                    'sub_row_id' => $rs->id,
+                    'kode_rak_id' => $kode_rak_tb->id
+                ]);
+            }
+        }
+
+        //redirect to index
+        return redirect()->route('daftar-rak.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -94,6 +125,10 @@ class RakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Rak::where('kode_rak_id', $id)->delete();
+        Kode_rak::findOrFail($id)->delete();
+
+        return redirect()->route('daftar-barang.index')
+            ->with('success', 'Data berhasil dihapus!');
     }
 }

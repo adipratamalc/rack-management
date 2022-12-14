@@ -101,9 +101,9 @@
 
           <div class="form-group">
             <label>Kode Rak</label>
-            <select name="kode_rak" class="form-control">
-              @foreach ($rak as $rk)
-              <option value="{{$rk->kode_rak}}">{{$rk->kode_rak}}</option>
+            <select name="kode_rak_id" class="form-control">
+              @foreach ($t_kode_rak as $kdrk)
+              <option value="{{$kdrk->id}}">{{$kdrk->kode_rak}}</option>
               @endforeach
             </select>
           </div>
@@ -119,11 +119,24 @@
 
           <div class="form-group">
             <label>Rak Sub Row</label>
-            <select name="sub_row" class="form-control">
-              @foreach ($rak_sub as $rk_s)
-              <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
-              @endforeach
-            </select>
+            <option value="" selected>Pilih salah satu</option>
+
+            <script>
+              const mainRowVal = document.getElementById("mainRow");
+              const subRowList = document.getElementById("subRowList");
+              function createSubRow() {
+              for (let i = 0; i < mainRowVal.value; i++) {
+              subRowList.innerHTML += `
+              <select name="sub_row" class="form-control">
+                @foreach ($rak_sub as $rk_s)
+                <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
+                @endforeach
+              </select>
+              `;
+            }
+          }
+            </script>
+
           </div>
 
           <div class="form-group">
@@ -196,7 +209,7 @@
           <div class="form-group">
             <label>Kode Rak</label>
             <select name="kode_rak" class="form-control">
-              <option value="{{$brg->rak->kode_rak}}">{{$brg->rak->kode_rak}}</option>
+              <option value="{{$brg->rak->_id}}">{{$brg->rak->kode_rak}}</option>
               @foreach ($rak as $rk)
               <option value="{{$rk->kode_rak}}">{{$rk->kode_rak}}</option>
               @endforeach

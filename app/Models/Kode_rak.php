@@ -10,6 +10,8 @@ class Kode_rak extends Model
 {
     use HasFactory, uuidAsKey;
     public $fillable = ['kode_rak'];
+    public $timestamps = true;
+
 
     public function rak()
     {

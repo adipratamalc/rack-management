@@ -228,17 +228,20 @@
         </button>
       </div>
 
+      <form action="{{ route('daftar-rak.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+
       <div class="modal-body">
-        <form action="">
           <div class="form-group">
             <label>Kode Rak</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control"  name="kode_rak">
           </div>
 
           <div class="form-group">
-            <label>Main Row</label>
-            <select class="custom-select" id="mainRow" onchange="createMainRow()">
-              <option value="0" selected>Pilih salah satu</option>
+            <label>Number Of Rows</label>
+            <select class="custom-select" id="mainRow" onchange="createMainRow()" name="main_row" required>
+              <option value="" selected>Pilih salah satu</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -247,14 +250,90 @@
           </div>
 
           <div id="subRowList"></div>
-        </form>
-      </div>
+        </div>
 
-      <div class="modal-footer bg-whitesmoke br">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
-      </div>
+        <div class="modal-footer bg-whitesmoke br">
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+
+      </form>
     </div>
   </div>
 </div>
+
+@foreach ($kode_rak as $kdrk)
+{{-- MODAL EDIT --}}
+<div class="modal fade" role="dialog" tabindex="-1" id="modalEdit-{{$kdrk->id}}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Rak</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form action="{{ route('daftar-rak.update', $kdrk->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+      <div class="modal-body">
+          <div class="form-group">
+            <label>Kode Rak</label>
+            <input type="text" required class="form-control"  name="kode_rak" value="{{$kdrk->kode_rak}}">
+          </div>
+
+          <div class="form-group">
+            <label>Main Row</label>
+            <select class="custom-select" id="mainRow" onchange="createMainRow()" name="main_row" required>
+              <option value="1" @if($rk->main_row_id === 1) selected @endif>1</option>
+              <option value="2" @if($rk->main_row_id === 2) selected @endif>2</option>
+              <option value="3" @if($rk->main_row_id === 3) selected @endif>3</option>
+              <option value="4" @if($rk->main_row_id === 4) selected @endif>4</option>
+            </select>
+          </div>
+
+          <div id="subRowList"></div>
+        </div>
+
+        <div class="modal-footer bg-whitesmoke br">
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{{-- MODAL DELETE --}}
+<div class="modal fade" role="dialog" tabindex="-1" id="modalDelete-{{$rk->id}}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Hapus Rak</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Yakin ingin menghapus?</p>
+      </div>
+
+      <form action="{{ route('daftar-rak.destroy', $rk->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <div class="modal-footer bg-whitesmoke br">
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-danger">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+@endforeach
 @endsection
