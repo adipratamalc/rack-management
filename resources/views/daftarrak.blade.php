@@ -43,10 +43,10 @@
               </div>
             </div>
           </div>
-            @endforeach
+          @endforeach
 
-          </div>
         </div>
+      </div>
       @endforeach
     </div>
   </div>
@@ -63,16 +63,15 @@
         </button>
       </div>
 
-      <form action="{{ route('daftar-rak.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('rak.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-
-      <div class="modal-body">
+        <div class="modal-body">
           <div class="form-group">
             <label>Kode Rak</label>
-            <input type="text" class="form-control"  name="kode_rak">
+            <input type="text" class="form-control" name="kode_rak">
           </div>
-      </div>
+        </div>
 
         <div class="modal-footer bg-whitesmoke br">
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -96,16 +95,16 @@
         </button>
       </div>
 
-      <form action="{{ route('daftar-rak.update', $kdrk->id) }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('rak.update', $kdrk->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
-      <div class="modal-body">
+        <div class="modal-body">
           <div class="form-group">
             <label>Kode Rak</label>
-            <input type="text" required class="form-control"  name="kode_rak" value="{{$kdrk->kode_rak}}">
+            <input type="text" required class="form-control" name="kode_rak" value="{{$kdrk->kode_rak}}">
           </div>
-      </div>
+        </div>
 
         <div class="modal-footer bg-whitesmoke br">
           <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -132,7 +131,7 @@
         <p>Yakin ingin menghapus rak {{$kdrk->kode_rak}}?</p>
       </div>
 
-      <form action="{{ route('daftar-rak.destroy', $kdrk->id) }}" method="POST">
+      <form action="{{ route('rak.destroy', $kdrk->id) }}" method="POST">
         @csrf
         @method('DELETE')
 

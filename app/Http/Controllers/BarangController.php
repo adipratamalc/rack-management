@@ -81,7 +81,7 @@ class BarangController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('daftar-barang.index')->with('success', 'Data Berhasil Disimpan!');
+        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -92,7 +92,16 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        //
+        $barang = Barang::findOrFail($id);
+        $rak = Rak::findOrFail($barang->rak_id);
+        $rak_kode = Kode_rak::findOrFail($rak->kode_rak_id);
+        $rak_main = Rak_main_row::findOrFail($rak->main_row_id);
+        $rak_sub = Rak_sub_row::findOrFail($rak->sub_row_id);
+
+        $rak_mains = Rak_main_row::orderBy('nama_main_row', 'ASC')->get();
+        $rak_subs = Rak_sub_row::orderBy('nama_sub_row', 'ASC')->get();
+
+        return view('detailbarang', compact('barang', 'rak', 'rak_kode', 'rak_main', 'rak_sub', 'rak_mains', 'rak_subs'));
     }
 
     /**
@@ -163,7 +172,7 @@ class BarangController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('daftar-barang.index')->with('success', 'Data Berhasil Disimpan!');
+        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -177,7 +186,7 @@ class BarangController extends Controller
         $barang = Barang::findOrFail($id);
         $barang->delete();
 
-        return redirect()->route('daftar-barang.index')
+        return redirect()->route('barang.index')
             ->with('success', 'Data berhasil dihapus!');
     }
 }

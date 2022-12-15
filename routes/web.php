@@ -31,5 +31,5 @@ Route::view('/detail-barang', 'detailbarang')->middleware('auth');
 Route::view('/hasil-cari', 'hasilcari')->middleware('auth');
 
 Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
-Route::resource('daftar-barang', BarangController::class)->middleware('auth');
-Route::resource('daftar-rak', RakController::class)->middleware('auth');
+Route::resource('barang', BarangController::class)->middleware('auth');
+Route::resource('rak', RakController::class)->middleware('auth');

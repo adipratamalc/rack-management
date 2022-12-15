@@ -39,8 +39,11 @@
               <td>{{ $brg->nama_barang }}</td>
               <td>{{ $brg->jenis_barang->nama_jenis }}</td>
               <td>{{ $brg->stok }}</td>
-              <td>{{ $brg->harga }}</td>
+              <td>Rp {{ number_format(intval($brg->harga)) }}</td>
               <td class="text-center">
+                <a href="{{ route('barang.show', $brg->id) }}" class="btn btn-icon btn-warning mr-2">
+                  <i class="fas fa-eye"></i>
+                </a>
                 <button class="btn btn-icon btn-info mr-2" data-toggle="modal" data-target="#modalEdit-{{$brg->id}}">
                   <i class="fas fa-pen"></i>
                 </button>
@@ -70,7 +73,7 @@
         </button>
       </div>
 
-      <form action="{{ route('daftar-barang.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
 
@@ -121,11 +124,11 @@
 
           <div class="form-group">
             <label>Rak Sub Row</label>
-              <select name="sub_row" class="form-control">
-                @foreach ($rak_sub as $rk_s)
-                <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
-                @endforeach
-              </select>
+            <select name="sub_row" class="form-control">
+              @foreach ($rak_sub as $rk_s)
+              <option value="{{$rk_s->id}}">{{$rk_s->nama_sub_row}}</option>
+              @endforeach
+            </select>
           </div>
 
           <div class="form-group">
@@ -163,7 +166,7 @@
         </button>
       </div>
 
-      <form action="{{ route('daftar-barang.update', $brg->id) }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('barang.update', $brg->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -267,7 +270,7 @@
         <p>Yakin ingin menghapus?</p>
       </div>
 
-      <form action="{{ route('daftar-barang.destroy', $brg->id) }}" method="POST">
+      <form action="{{ route('barang.destroy', $brg->id) }}" method="POST">
         @csrf
         @method('DELETE')
 
