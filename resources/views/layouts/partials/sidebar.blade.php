@@ -13,8 +13,8 @@
         </a>
       </li>
 
-      <li class={{ Request::is('cari-barang')? "active" : "" }}>
-        <a class="nav-link" href="{{ url('/cari-barang') }}"><i class="fas fa-search"></i>
+      <li class={{ Request::is('cari')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/cari') }}"><i class="fas fa-search"></i>
           <span>Cari Barang</span>
         </a>
       </li>

@@ -5,7 +5,7 @@
   <div class="section-header">
     <h1>Detail Barang</h1>
     <div class="ml-auto">
-      <a href="/barang" class="btn btn-icon icon-left btn-primary">
+      <a href="{{url()->previous()}}" class="btn btn-icon icon-left btn-primary">
         <i class="fas fa-arrow-left"></i> Kembali
       </a>
     </div>

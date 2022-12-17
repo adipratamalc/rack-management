@@ -1,0 +1,18 @@
+.custom-link {
+  text-decoration: none !important;
+}
+
+.card-custom:hover {
+  text-decoration: none !important;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.card-custom {
+  align-items: flex-start;
+}
+
+@media (min-width: 576px) {
+  .card-custom {
+    align-items: center;
+  }
+}
