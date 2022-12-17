@@ -13,8 +13,8 @@
         </a>
       </li>
 
-      <li class={{ Request::is('cari-barang')? "active" : "" }}>
-        <a class="nav-link" href="{{ url('/cari-barang') }}"><i class="fas fa-search"></i>
+      <li class={{ Request::is('cari')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/cari') }}"><i class="fas fa-search"></i>
           <span>Cari Barang</span>
         </a>
       </li>
@@ -25,14 +25,14 @@
         </a>
       </li>
 
-      <li class={{ Request::is('daftar-barang')? "active" : "" }}>
-        <a class="nav-link" href="{{ url('/daftar-barang') }}"><i class="fas fa-list"></i>
+      <li class={{ Request::is('barang')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/barang') }}"><i class="fas fa-list"></i>
           <span>Daftar Barang</span>
         </a>
       </li>
 
-      <li class={{ Request::is('daftar-rak')? "active" : "" }}>
-        <a class="nav-link" href="{{ url('/daftar-rak') }}"><i class="fas fa-th"></i>
+      <li class={{ Request::is('rak')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/rak') }}"><i class="fas fa-th"></i>
           <span>Daftar Rak</span>
         </a>
       </li>

@@ -14,6 +14,9 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+
+  {{-- custom CSS --}}
+  <link rel="stylesheet" href="../assets/css/customhover.css">
 </head>
 
 <body>

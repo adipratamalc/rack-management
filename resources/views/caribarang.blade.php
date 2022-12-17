@@ -7,22 +7,23 @@
   </div>
 
   <div class="section-body">
-    <div class="row">
-      <div class="col-12 col-md-6 d-flex flex-column mb-3">
-        <form>
+    <div class="column">
+      <div class="col-12  d-flex flex-column mb-3">
+        <form action="{{ route('search') }}" method="GET">
           <div class="d-flex w-100">
-            <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control form-control-lg" name="search" type="search" placeholder="Search"
+              aria-label="Search">
 
-            <button class="btn bg-white btn-rounded ml-2" type="submit">
+            <button type="submit" class="btn bg-white btn-rounded ml-2">
               <i class="fas fa-search"></i>
             </button>
           </div>
         </form>
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="card p-3 d-flex justify-content-center align-items-center" style="height: 400px">
-          <p class="h5 font-italic text-center">Informasi RAK akan tampil disini</p>
+      <div class="col-12 ">
+        <div class="card p-3 d-flex justify-content-center align-items-center">
+          <p class="h5 font-italic text-center">Hasil pencarian akan tampil disini</p>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RakController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,13 @@ Route::controller(AuthController::class)->group(function () {
   Route::get('/logout', 'logout')->middleware('auth');
 });
 
-Route::view('/', 'dashboard')->middleware('auth');
-Route::view('/cari-barang', 'caribarang')->middleware('auth');
-Route::view('/detail-barang', 'detailbarang')->middleware('auth');
-Route::view('/hasil-cari', 'hasilcari')->middleware('auth');
+//search routes
+Route::controller(SearchController::class)->group(function () {
+  Route::get('/cari', 'index')->middleware('auth');
+  Route::get('/find', 'search')->name('search')->middleware('auth');
+});
 
+Route::view('/', 'dashboard')->middleware('auth');
 Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
-Route::resource('daftar-barang', BarangController::class)->middleware('auth');
-Route::resource('daftar-rak', RakController::class)->middleware('auth');
+Route::resource('barang', BarangController::class)->middleware('auth');
+Route::resource('rak', RakController::class)->middleware('auth');

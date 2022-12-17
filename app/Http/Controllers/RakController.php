@@ -59,7 +59,7 @@ class RakController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('daftar-rak.index')->with('success', 'Data Berhasil Disimpan!');
+        return redirect()->route('rak.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -99,7 +99,7 @@ class RakController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('daftar-rak.index')->with('success', 'Data Berhasil Disimpan!');
+        return redirect()->route('rak.index')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -113,7 +113,7 @@ class RakController extends Controller
         Rak::where('kode_rak_id', $id)->delete();
         Kode_rak::findOrFail($id)->delete();
 
-        return redirect()->route('daftar-rak.index')
+        return redirect()->route('rak.index')
             ->with('success', 'Data berhasil dihapus!');
     }
 }
