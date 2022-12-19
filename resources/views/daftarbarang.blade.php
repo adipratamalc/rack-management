@@ -79,11 +79,40 @@
 
         <div class="modal-body">
 
-          <div class="form-group">
-            <label class="font-weight-bold">GAMBAR</label>
-            <input type="file" id="file" name="gambar_barang" />
-            <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div>
+        <div class="form-group">
+          <label>Gambar</label>
+          <div id="imagePreview1"><img src="{{ asset('assets/img/example-image.jpg') }}" class="img-thumbnail " id="gambar"/></div>
+          <div class="input-group">
+              <div class="custom-file">
+                <input  class="custom-file-input" type="file" id="file1" name="gambar_barang" aria-describedby="file">
+                <label class="custom-file-label" for="file">Choose file</label>
+              </div>
           </div>
+        </div>
+
+        <script>
+          function fileValidation(){
+          var fileInput = document.getElementById('file1');
+          var filePath = fileInput.value;
+          var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+          if(!allowedExtensions.exec(filePath)){
+              alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+              fileInput.value = '';
+              return false;
+          }else{
+              //Image preview
+              if (fileInput.files && fileInput.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function(e) {
+                      document.getElementById('imagePreview1').innerHTML = '<img src="'+e.target.result+'" class="img-thumbnail" id="gambar"/>';
+                  };
+                  reader.readAsDataURL(fileInput.files[0]);
+              }
+          }
+      }
+      </script>
+
+
 
           <div class="form-group">
             <label>Nama Barang</label>
@@ -173,10 +202,39 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label class="font-weight-bold">GAMBAR</label>
-            <input type="file" id="file" name="gambar_barang" />
-            <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div>
+            <label>Gambar</label>
+            <div id="imagePreview2"><img src="{{ asset('storage/barang/'. $brg->gambar_barang) }}" class="img-thumbnail " id="gambar"/></div>
+            <div class="input-group">
+                <div class="custom-file">
+                  <input  class="custom-file-input" type="file" id="file2" name="gambar_barang" aria-describedby="file">
+                  <label class="custom-file-label" for="file">Choose file</label>
+                </div>
+            </div>
           </div>
+
+          <script>
+            function fileValidation(){
+            var fileInput = document.getElementById('file2');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if(!allowedExtensions.exec(filePath)){
+                alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+                fileInput.value = '';
+                return false;
+            }else{
+                //Image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('imagePreview2').innerHTML = '<img src="'+e.target.result+'" class="img-thumbnail" id="gambar"/>';
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            }
+        }
+        </script>
+
+
 
           <div class="form-group">
             <label>Nama Barang</label>
