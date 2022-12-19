@@ -76,7 +76,6 @@
       <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-
         <div class="modal-body">
 
         <div class="form-group">
