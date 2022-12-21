@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DahboardController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RakController;
@@ -32,7 +33,7 @@ Route::controller(SearchController::class)->group(function () {
   Route::get('/find', 'search')->name('search')->middleware('auth');
 });
 
-Route::view('/', 'dashboard')->middleware('auth');
+Route::resource('/', DahboardController::class)->middleware('auth');
 Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
 Route::resource('barang', BarangController::class)->middleware('auth');
 Route::resource('rak', RakController::class)->middleware('auth');
