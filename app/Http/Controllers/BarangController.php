@@ -22,8 +22,8 @@ class BarangController extends Controller
     $barang = Barang::all();
     $jenisbarang = Jenis_barang::orderBy('nama_jenis', 'ASC')->get();
     $rak = Rak::all();
-    $rak_main = Rak_main_row::orderBy('nama_main_row', 'ASC')->get();
-    $rak_sub = Rak_sub_row::orderBy('nama_sub_row', 'ASC')->get();
+    $rak_main = Rak_main_row::orderBy('id', 'ASC')->get();
+    $rak_sub = Rak_sub_row::orderBy('id', 'ASC')->get();
     $kode_rak = Kode_rak::orderBy('kode_rak', 'ASC')->get();
     return view('daftarbarang', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 'kode_rak'))->with('i', 0);
   }
@@ -126,11 +126,6 @@ class BarangController extends Controller
   {
     $barang = Barang::findOrFail($id);
 
-    //validate form
-    $this->validate($request, [
-      'gambar'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
-
     // get rak id
     $get_rak_id = Rak::where('kode_rak_id', $request->kode_rak_id)
       ->where('main_row_id', $request->main_row)
@@ -142,7 +137,7 @@ class BarangController extends Controller
     }
 
     //check if image is uploaded
-    if ($request->hasFile('image')) {
+    if ($request->hasFile('gambar_barang')) {
       //upload new image
       $image = $request->file('gambar_barang');
       if ($image !== null) {

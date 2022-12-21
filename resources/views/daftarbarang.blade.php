@@ -76,13 +76,19 @@
       <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-
         <div class="modal-body">
-
           <div class="form-group">
-            <label class="font-weight-bold">GAMBAR</label>
-            <input type="file" id="file" name="gambar_barang" />
-            <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div>
+            <label>Gambar</label>
+            <div id="imageCreatePreview"><img src="{{ asset('assets/img/example-image.jpg') }}" class="img-thumbnail"
+                id="gambar" />
+            </div>
+            <div class="input-group">
+              <div class="custom-file">
+                <input class="custom-file-input" type="file" id="fileCreate" name="gambar_barang"
+                  aria-describedby="file" onchange="imageCreateFile()">
+                <label class="custom-file-label" for="file">Choose file</label>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -171,11 +177,19 @@
         @method('PUT')
 
         <div class="modal-body">
-
           <div class="form-group">
-            <label class="font-weight-bold">GAMBAR</label>
-            <input type="file" id="file" name="gambar_barang" />
-            <div id="imagePreview"><img src="" class="rounded pt-1" style="width: 250px" id="gambar"></div>
+            <label>Gambar</label>
+            <div id="imageEditPreview"><img src="{{ asset('storage/barang/'. $brg->gambar_barang) }}"
+                class="img-thumbnail " id="gambar" />
+            </div>
+
+            <div class="input-group">
+              <div class="custom-file">
+                <input class="custom-file-input" type="file" id="fileEdit" name="gambar_barang" aria-describedby="file"
+                  onchange="imageEditFile()">
+                <label class="custom-file-label" for="fileEdit">Choose file</label>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
