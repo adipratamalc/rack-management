@@ -42,7 +42,7 @@ class SearchController extends Controller
     $keyword = $request->search;
     $barang = Barang::where('kode_barang', 'like', "%" . $keyword . "%")->get();
 
-    return view('hasilcari', compact('keyword', 'barang'))->with('i', 0);
+    return view('hasilcari', compact('barang'));
   }
 
 

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\Barang;
+use App\Models\Jenis_barang;
+use App\Models\Kode_rak;
 use App\Models\Rak;
 use App\Models\Rak_main_row;
 use App\Models\Rak_sub_row;
-use App\Models\Kode_rak;
-use Illuminate\Http\Request;
 
-class RakController extends Controller
+class DahboardController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -17,11 +19,15 @@ class RakController extends Controller
    */
   public function index()
   {
-    $rak = Rak::all();
+    $barang = Barang::latest()->paginate(5);
+    $jenisbarang = Jenis_barang::orderBy('nama_jenis', 'ASC')->get();
+
+    $rak = Rak::latest()->paginate(4);
     $rak_main = Rak_main_row::all();
     $rak_sub = Rak_sub_row::all();
     $kode_rak = Kode_rak::orderBy('kode_rak', 'ASC')->get();
-    return view('daftarrak', compact('rak', 'rak_main', 'rak_sub', 'kode_rak'));
+
+    return view('dashboard', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 'kode_rak'))->with('i', 0);
   }
 
   /**
@@ -42,24 +48,7 @@ class RakController extends Controller
    */
   public function store(Request $request)
   {
-    $kode_rak_tb = Kode_rak::create([
-      'kode_rak' => $request->kode_rak
-    ]);
-
-    $rak_main = Rak_main_row::orderBy('id', 'ASC')->get();
-    $rak_sub = Rak_sub_row::orderBy('id', 'ASC')->get();
-    foreach ($rak_main as $rm) {
-      foreach ($rak_sub as $rs) {
-        Rak::create([
-          'main_row_id' => $rm->id,
-          'sub_row_id' => $rs->id,
-          'kode_rak_id' => $kode_rak_tb->id
-        ]);
-      }
-    }
-
-    //redirect to index
-    return redirect()->route('rak.index')->with('success', 'Data Berhasil Disimpan!');
+    //
   }
 
   /**
@@ -93,13 +82,7 @@ class RakController extends Controller
    */
   public function update(Request $request, $id)
   {
-    $kode_rak = Kode_rak::findOrFail($id);
-    $kode_rak->update([
-      'kode_rak' => $request->kode_rak
-    ]);
-
-    //redirect to index
-    return redirect()->route('rak.index')->with('success', 'Data Berhasil Disimpan!');
+    //
   }
 
   /**
@@ -110,10 +93,6 @@ class RakController extends Controller
    */
   public function destroy($id)
   {
-    Rak::where('kode_rak_id', $id)->delete();
-    Kode_rak::findOrFail($id)->delete();
-
-    return redirect()->route('rak.index')
-      ->with('success', 'Data berhasil dihapus!');
+    //
   }
 }

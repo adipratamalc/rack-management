@@ -27,8 +27,8 @@
         </form>
       </div>
 
-      <div class="col-12 ">
-        @foreach ($barang as $brg)
+      <div class="col-12">
+        @forelse ($barang as $brg)
         <a class="custom-link" href="{{ route('barang.show', $brg->id) }}">
           <div class="card p-2 mb-3 d-flex flex-md-row justify-content-around card-custom">
             <img src="{{ asset('/storage/barang/'.$brg->gambar_barang) }}" width="100" height="100" class="text-center">
@@ -59,7 +59,14 @@
             </div>
           </div>
         </a>
-        @endforeach
+
+        @empty
+
+        <div class="card p-3 d-flex justify-content-center align-items-center">
+          <p class="h5 font-italic text-center text-danger">Barang tidak ditemukan</p>
+        </div>
+
+        @endforelse
       </div>
     </div>
   </div>
