@@ -20,7 +20,7 @@ class RakController extends Controller
     $rak = Rak::all();
     $rak_main = Rak_main_row::all();
     $rak_sub = Rak_sub_row::all();
-    $kode_rak = Kode_rak::orderBy('kode_rak', 'ASC')->get();
+    $kode_rak = Kode_rak::orderBy('created_at', 'ASC')->get();
     return view('daftarrak', compact('rak', 'rak_main', 'rak_sub', 'kode_rak'));
   }
 
