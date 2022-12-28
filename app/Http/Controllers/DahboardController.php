@@ -22,10 +22,10 @@ class DahboardController extends Controller
     $barang = Barang::latest()->paginate(5);
     $jenisbarang = Jenis_barang::orderBy('nama_jenis', 'ASC')->get();
 
-    $rak = Rak::latest()->paginate(4);
+    $rak = Rak::latest()->paginate(5);
     $rak_main = Rak_main_row::all();
     $rak_sub = Rak_sub_row::all();
-    $kode_rak = Kode_rak::orderBy('kode_rak', 'ASC')->get();
+    $kode_rak = Kode_rak::orderBy('created_at', 'DESC')->paginate(4);
 
     return view('dashboard', compact('barang', 'jenisbarang', 'rak', 'rak_main', 'rak_sub', 'kode_rak'))->with('i', 0);
   }
