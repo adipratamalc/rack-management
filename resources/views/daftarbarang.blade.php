@@ -139,12 +139,12 @@
 
           <div class="form-group">
             <label>Stok Barang</label>
-            <input type="text" required class="form-control" name="stok">
+            <input type="number" required class="form-control" name="stok">
           </div>
 
           <div class="form-group">
             <label>harga Barang</label>
-            <input type="text" required class="form-control" name="harga">
+            <input type="number" required class="form-control" name="harga">
           </div>
 
         </div>

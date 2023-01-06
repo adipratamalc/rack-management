@@ -36,6 +36,12 @@
           <span>Daftar Rak</span>
         </a>
       </li>
+
+      <li class={{ Request::is('info')? "active" : "" }}>
+        <a class="nav-link" href="{{ url('/info') }}"><i class="fas fa-info"></i>
+          <span>Pusat Bantuan</span>
+        </a>
+      </li>
     </ul>
   </aside>
 </div>
