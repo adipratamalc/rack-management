@@ -16,7 +16,7 @@
       <div class="col-12 col-md-6 d-flex flex-column">
         <h2 class="title-product text-primary">{{$barang->nama_barang}}</h2>
         <div class="d-flex flex-column align-items-center">
-          <img alt="image" src="{{ asset('storage/barang/'.$barang->gambar_barang) }}" class="img-fluid w-50">
+          <img alt="image" src="{{ asset('images/'.$barang->gambar_barang) }}" class="img-fluid w-50">
         </div>
 
         <div class="d-flex flex-column">

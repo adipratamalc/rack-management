@@ -22,7 +22,7 @@
         @forelse ($barang as $brg)
         <a class="custom-link" href="{{ route('barang.show', $brg->id) }}">
           <div class="card p-2 mb-3 d-flex flex-md-row justify-content-around card-custom">
-            <img src="{{ asset('/storage/barang/'.$brg->gambar_barang) }}" width="100" height="100" class="text-center">
+            <img src="{{ asset('images/'.$brg->gambar_barang) }}" width="100" height="100" class="text-center">
 
             <div class="d-flex flex-column">
               <span class="text-primary">Kode</span>
