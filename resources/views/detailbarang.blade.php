@@ -45,7 +45,10 @@
                 @foreach ($rak_subs as $rs)
                 <div class="bg-secondary mb-2 p-1 {{ $rak->sub_row_id === $rs->id && $rak->main_row_id === $rm->id ? "
                   bg-danger text-white" : "" }}">
-                  {{$rs->nama_sub_row}}</div>
+                  <a href="{{ route('rak.show', $rak->id) }}">
+                      {{$rs->nama_sub_row}}
+                    </a>
+                  </div>
                 @endforeach
               </div>
             </div>
