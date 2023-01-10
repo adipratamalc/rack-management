@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\Jenis_barang;
 use App\Models\Rak;
 use App\Models\Rak_main_row;
 use App\Models\Rak_sub_row;
@@ -70,7 +72,13 @@ class RakController extends Controller
    */
   public function show($id)
   {
-    //
+    $rak = Rak::join('kode_raks', 'kode_raks.id', '=', 'kode_rak_id')
+      ->join('rak_main_rows', 'rak_main_rows.id', '=', 'main_row_id')
+      ->join('rak_sub_rows', 'rak_sub_rows.id', '=', 'sub_row_id')
+      ->where('raks.id', $id)
+      ->first();
+    $barang = Barang::where('rak_id', $id)->get();
+    return view('rak-barang', compact('barang', 'rak'))->with('i', 0);
   }
 
   /**
