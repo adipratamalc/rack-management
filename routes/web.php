@@ -37,3 +37,4 @@ Route::resource('/', DahboardController::class)->middleware('auth');
 Route::resource('jenis-barang', JenisBarangController::class)->middleware('auth');
 Route::resource('barang', BarangController::class)->middleware('auth');
 Route::resource('rak', RakController::class)->middleware('auth');
+Route::view('info', 'pusatbantuan')->middleware('auth');

@@ -75,7 +75,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Kode Rak</label>
-            <input type="text" class="form-control" name="kode_rak">
+            <input type="number" class="form-control" name="kode_rak">
           </div>
         </div>
 
