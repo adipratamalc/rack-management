@@ -45,9 +45,16 @@
                 @foreach ($rak_subs as $rs)
                 <div class="bg-secondary mb-2 p-1 {{ $rak->sub_row_id === $rs->id && $rak->main_row_id === $rm->id ? "
                   bg-danger text-white" : "" }}">
-                  <a href="{{ route('rak.show', $rak->id) }}">
-                      {{$rs->nama_sub_row}}
-                    </a>
+
+                  @php
+                      $rk = $rak->where('kode_rak_id', $rak_kode->id)
+                      ->where('main_row_id', $rm->id)
+                      ->where('sub_row_id', $rs->id)
+                      ->first();
+                  @endphp
+                      <a href="{{ route('rak.show', $rk->id) }}">
+                      {{$rs->nama_sub_row}}</a>
+
                   </div>
                 @endforeach
               </div>
