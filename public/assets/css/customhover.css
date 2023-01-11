@@ -16,3 +16,8 @@
     align-items: center;
   }
 }
+
+.rak-sub-custom:hover {
+  text-decoration: none !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}

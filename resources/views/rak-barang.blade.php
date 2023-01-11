@@ -4,9 +4,12 @@
 
 <section class="section">
   <div class="section-header">
-    <h1> Rak Ke-{{$rak->kode_rak}}, {{$rak->nama_main_row}} & {{$rak->nama_sub_row}}</h1>
+    <h1>
+      Daftar Barang: <span class="text-primary">Rak {{$rak->kode_rak}}, {{$rak->nama_main_row}} &
+        {{$rak->nama_sub_row}}</span>
+    </h1>
     <div class="ml-auto">
-      <a href="/cari" class="btn btn-icon icon-left btn-primary">
+      <a href="/rak" class="btn btn-icon icon-left btn-primary">
         <i class="fas fa-arrow-left"></i> Kembali
       </a>
     </div>
@@ -14,10 +17,6 @@
 
   <div class="section-body">
     <div class="column">
-      <div class="col-12 d-flex flex-column mb-3">
-
-      </div>
-
       <div class="col-12">
         @forelse ($barang as $brg)
         <a class="custom-link" href="{{ route('barang.show', $brg->id) }}">
@@ -54,7 +53,7 @@
         @empty
 
         <div class="card p-3 d-flex justify-content-center align-items-center">
-          <p class="h5 font-italic text-center text-danger">Barang tidak ditemukan</p>
+          <p class="h5 font-italic text-center text-danger">Tidak ada barang pada baris ini</p>
         </div>
 
         @endforelse

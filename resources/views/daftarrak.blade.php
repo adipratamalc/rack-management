@@ -39,10 +39,12 @@
               <div class="pr-2 pl-2 pb-1 pt-1 bg-light text-center">
                 @foreach ($rak_sub as $rs)
                 @foreach ($rak as $rk)
-                @if (($rk['kode_rak_id']==$kdrk['id']) && ($rk['main_row_id']==$rm['id']) && ($rk['sub_row_id']==$rs['id']))
-                <a href="{{ route('rak.show', $rk->id) }}">
-                <div class="bg-secondary mb-1 mt-1 p-1">{{$rs->nama_sub_row}}</div></a>
-                    @endif
+                @if (($rk['kode_rak_id']==$kdrk['id']) && ($rk['main_row_id']==$rm['id']) &&
+                ($rk['sub_row_id']==$rs['id']))
+                <a class="custom-link" href="{{ route('rak.show', $rk->id) }}">
+                  <div class="bg-secondary mb-1 mt-1 p-1 rak-sub-custom">{{$rs->nama_sub_row}}</div>
+                </a>
+                @endif
                 @endforeach
 
                 @endforeach
