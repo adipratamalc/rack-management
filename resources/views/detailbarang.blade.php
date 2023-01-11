@@ -43,6 +43,14 @@
               <p class="h5 mb-1">{{$rm->nama_main_row}}</p>
               <div class="p-2 bg-light text-center border {{ $rak->main_row_id === $rm->id ? " border-danger" : "" }}">
                 @foreach ($rak_subs as $rs)
+
+                  @php
+                      $rk = $rak->where('kode_rak_id', $rak_kode->id)
+                      ->where('main_row_id', $rm->id)
+                      ->where('sub_row_id', $rs->id)
+                      ->first();
+                  @endphp
+
                 <a class="custom-link" href="{{ route('rak.show', $rak->id) }}">
                   <div
                     class="bg-secondary mb-2 p-1 rak-sub-custom {{ $rak->sub_row_id === $rs->id && $rak->main_row_id === $rm->id ? "
