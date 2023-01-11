@@ -38,7 +38,15 @@
               <p class="h5 mb-2 mt-2">{{$rm->nama_main_row}}</p>
               <div class="pr-2 pl-2 pb-1 pt-1 bg-light text-center">
                 @foreach ($rak_sub as $rs)
-                <div class="bg-secondary mb-1 mt-1 p-1">{{$rs->nama_sub_row}}</div>
+                @foreach ($rak as $rk)
+                @if (($rk['kode_rak_id']==$kdrk['id']) && ($rk['main_row_id']==$rm['id']) &&
+                ($rk['sub_row_id']==$rs['id']))
+                <a class="custom-link" href="{{ route('rak.show', $rk->id) }}">
+                  <div class="bg-secondary mb-1 mt-1 p-1 rak-sub-custom">{{$rs->nama_sub_row}}</div>
+                </a>
+                @endif
+                @endforeach
+
                 @endforeach
               </div>
             </div>

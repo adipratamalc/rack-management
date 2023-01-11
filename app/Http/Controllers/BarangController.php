@@ -53,8 +53,8 @@ class BarangController extends Controller
     // upload image
     $image = $request->file('gambar_barang');
     if ($image !== null) {
-      $image->storeAs('public/barang', $image->hashName());
       $gambar_barang = $image->hashName();
+      $image->move(public_path('images'), $gambar_barang);
     } else {
       $gambar_barang = "no-image.jpg";
     }
@@ -141,8 +141,8 @@ class BarangController extends Controller
       //upload new image
       $image = $request->file('gambar_barang');
       if ($image !== null) {
-        $image->storeAs('public/barang', $image->hashName());
         $gambar_barang = $image->hashName();
+        $image->move(public_path('images'), $gambar_barang);
       } else {
         $gambar_barang = "no-image.jpg";
       }

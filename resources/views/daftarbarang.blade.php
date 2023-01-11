@@ -179,7 +179,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Gambar</label>
-            <div id="imageEditPreview"><img src="{{ asset('storage/barang/'. $brg->gambar_barang) }}"
+            <div id="imageEditPreview"><img src="{{ asset('images/'. $brg->gambar_barang) }}"
                 class="img-thumbnail " id="gambar" />
             </div>
 
